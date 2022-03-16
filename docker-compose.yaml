@@ -55,8 +55,8 @@ services:
       - odoo
     restart: always
 
-# Use Ngrok if you want to expose your Odoo instance to the public internet
-  # Uncomment this
+  # Use Ngrok if you want to expose your Odoo instance to the public internet
+  # without deploying anything to Server or Hosting, uncomment below to enable it
   # ngrok:
   #   image: wernight/ngrok:latest
   #   ports:
