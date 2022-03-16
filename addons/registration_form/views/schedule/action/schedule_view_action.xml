@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="schedule_user_action" model="ir.actions.act_window">
+        <field name="name">Users Schedule</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">schedule.user</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'search_default_draft':1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new schedule
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="schedule_user_root"
+              name="Schedule"
+              parent="regis_root"
+              sequence="4"/>
+
+    <menuitem id="schedule_user"
+              name="All Schedule"
+              parent="schedule_user_root"
+              action="schedule_user_action"
+              sequence="2"/>
+
+        <!--
+        Instead of inside wizard view, add menu or submenu here, because
+        since in __manifest__ file, the wizard is loaded before view, so it will
+        give an error because of hierarchy import issues
+        -->
+
+    <menuitem id="create_schedule_user"
+              name="New Schedule"
+              parent="schedule_user_root"
+              action="action_create_schedule_view"
+              sequence="1"/>
+
+</odoo>

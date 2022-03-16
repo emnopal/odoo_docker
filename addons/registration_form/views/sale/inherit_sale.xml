@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- If you want to inherit view -->
+    <!--    <record id="{inherited id}" model="ir.ui.view">-->
+    <!--        <field name="name">{inherited names}</field>-->
+    <!--        <field name="model">{inherited models}</field>-->
+    <!--        <field name="inherit_id" ref="{search for "external id" on odoo module on view you want to inherit}"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--&lt;!&ndash;            <xpath expr="//field[@name='group_ids']" position="after">&ndash;&gt; in odoo >= 14 use xpath instead of field -->
+    <!--                <field name="subscription_department_ids" widget="many2many_tags"-->
+    <!-- string="Auto Subscribe Departments"/>-->
+    <!--            </xpath>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!--Create new view form in inherited views-->
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!--Starting of odoo 14 above, use xpath instead of field in inherited view-->
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="sale_description" string="Sale Description"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Create new view tree in inherited views-->
+    <!--add other field in parent module from inherited module-->
+    <record id="view_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <!--Starting of odoo 14 above, use xpath instead of field in inherited view-->
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="sale_description" string="Sale Description"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Add menu from inherited module to parent module-->
+    <!--make sure you've added parent module inside __manifest__.py-->
+    <menuitem id="menu_sale_user_regis"
+            name="User Registration"
+            parent="sale.sale_order_menu"
+            sequence="5"
+            action="regis_user_action"/>
+
+    <!--name: name in parent module-->
+    <!--parent: parent module and their menu id-->
+    <!--sequence: sequence-->
+    <!--action: action of inherited module in parent module-->
+
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Kanban View -->
+    <record id="view_regis_client_kanban" model="ir.ui.view">
+        <field name="name">regis.client.kanban</field>
+        <field name="model">regis.client</field>
+        <field name="arch" type="xml">
+            <kanban sample="1"> <!--Sample is for creating dummy data if field is null-->
+                <field name="id"/>
+                <field name="fullname" string="Name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="address"/>
+                <field name="bio"/>
+                <field name="reference" string="UID"/>
+                <field name="create_date" string="Account Created"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <h1>
+                                            UID:
+                                            <field name="reference"/> <!--Reference here is sequence of user create-->
+                                        </h1>
+                                    </li>
+                                    <li>
+                                        Name:
+                                        <field name="fullname"/>
+                                    </li>
+                                    <li>
+                                        Age:
+                                        <field name="age"/>
+                                    </li>
+                                    <li>
+                                        Gender:
+                                        <field name="gender"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>
