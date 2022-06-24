@@ -1,9 +1,9 @@
-version: '3.6' # change to 3.6 from 3.8 to stability
+version: '3.8'
 
 services:
   postgres:
     container_name: odoo-postgres
-    image: postgres:13 # postgres:13-alpine doesn't work well
+    image: postgres:13-alpine
     restart: unless-stopped
     env_file:
       - ./config/postgres/postgres.env
