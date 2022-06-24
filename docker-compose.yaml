@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   postgres:
+    container_name: odoo-postgres
     image: postgres:13-alpine
     restart: always
     environment:
@@ -31,6 +32,7 @@ services:
 #       - postgres
 
   odoo:
+    container_name: odoo-frontend
     build: .
     restart: always
     depends_on:
@@ -45,6 +47,7 @@ services:
       - 8069:8069/tcp
 
   nginx:
+    container_name: odoo-proxy-pass
     image: nginx:latest
     volumes:
       - ./config/nginx:/etc/nginx/conf.d
