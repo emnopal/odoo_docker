@@ -2,5 +2,4 @@ __pycache__
 *.pyc
 *.env
 *.pyc
-*.conf
-!config/nginx/default.conf
+config/odoo/odoo.conf
