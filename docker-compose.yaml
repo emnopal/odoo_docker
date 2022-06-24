@@ -33,7 +33,7 @@ services:
 
   odoo:
     container_name: odoo-frontend
-    build: .
+    image: odoo:14.0
     restart: always
     depends_on:
       - postgres
@@ -60,18 +60,6 @@ services:
     links:
       - odoo:odoo
 #       - pgadmin:pgadmin
-
-# ngrok is now optional
-#   ngrok:
-#     image: wernight/ngrok:latest
-#     ports:
-#       - 4040:4040
-#     environment:
-#       NGROK_PROTOCOL: http
-#       NGROK_PORT: nginx:80
-#       NGROK_AUTH: ${NGROK_AUTH}
-#     depends_on:
-#       - nginx
 
 volumes:
   odoo-db-data:
