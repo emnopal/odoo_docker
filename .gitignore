@@ -1,6 +1,7 @@
 __pycache__
 *.pyc
-.env
+*.env
 addons/*
-__pycache__
 *.pyc
+*.conf
+!config/nginx/default.conf

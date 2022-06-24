@@ -1,1 +1,0 @@
-Put your odoo custom module here <br>
